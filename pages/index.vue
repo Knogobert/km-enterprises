@@ -1,7 +1,6 @@
 <template>
   <div class="main text-center flex flex-col items-center justify-center">
     <logo />
-    <h1 class="title">KM Enterprises</h1>
     <h2 class="subtitle">Hyr in barpersonal till event</h2>
   </div>
 </template>
@@ -11,12 +10,12 @@ import Logo from '~/components/general/Logo.vue'
 
 export default {
   components: {
-    Logo,
+    Logo
   },
   head() {
     return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
     }
-  },
+  }
 }
 </script>
