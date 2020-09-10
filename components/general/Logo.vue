@@ -1,8 +1,7 @@
 <template>
   <div class="p-4 m-2 max-w-xl">
     <svg
-      class="w-full"
-      :class="{ 'text-gray-900': useDarkLogo, 'text-white': !useDarkLogo }"
+      class="w-full text-gray-900 dark:text-white"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1016.63 148.76"
       role="img"
@@ -62,33 +61,3 @@
     </svg>
   </div>
 </template>
-
-<script>
-import { COLOR_MODE_FALLBACK } from '~/utils/globals.js'
-
-export default {
-  name: 'Logo',
-  data() {
-    return {
-      colorMode: COLOR_MODE_FALLBACK,
-    }
-  },
-  computed: {
-    useDarkLogo() {
-      return this.colorMode === 'light'
-    },
-  },
-  watch: {
-    '$colorMode.value': {
-      immediate: true,
-      handler(val) {
-        if (!this.$colorMode.unknown && val) {
-          this.colorMode = val
-        } else {
-          this.colorMode = COLOR_MODE_FALLBACK
-        }
-      },
-    },
-  },
-}
-</script>
