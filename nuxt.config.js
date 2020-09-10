@@ -38,7 +38,8 @@ export default {
         name: 'description',
         content: SITE_INFO.sitedescription || process.env.npm_package_description || ''
       }
-    ]
+    ],
+    link: [{ rel: 'stylesheet', href: 'https://use.typekit.net/wet3diw.css' }]
   },
   generate: {
     routes: dynamicRoutes,
