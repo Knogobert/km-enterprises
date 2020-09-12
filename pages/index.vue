@@ -1,16 +1,20 @@
 <template>
-  <div class="main text-center flex flex-col items-center justify-center">
+  <div class="main text-center flex flex-col items-center justify-center mb-16">
     <logo />
-    <h2 class="subtitle">Hyr in barpersonal till event</h2>
+    <h2 class="text-xl mb-32">Hyr in barpersonal till event</h2>
+    <h3 class="title">Offertförfrågan</h3>
+    <form-event/>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/general/Logo.vue'
+import FormEvent from '~/components/forms/FormEvent.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    FormEvent
   },
   head() {
     return {

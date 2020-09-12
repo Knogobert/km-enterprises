@@ -41,6 +41,18 @@ export default {
     ],
     link: [{ rel: 'stylesheet', href: 'https://use.typekit.net/wet3diw.css' }]
   },
+  /*
+   ** Vue-router
+   */
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'thanks',
+        path: '/thanks',
+        component: resolve(__dirname, 'pages/formSuccess.vue')
+      })
+    }
+  },
   generate: {
     routes: dynamicRoutes,
     fallback: true,
@@ -102,7 +114,7 @@ export default {
   purgeCSS: {
     mode: 'postcss',
     whitelist: ['dark-mode', 'light-mode', 'btn', 'icon', 'main', 'logo'],
-    whitelistPatterns: [/^article/, /image$/]
+    whitelistPatterns: [/^article/, /image$/, /^form/]
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference

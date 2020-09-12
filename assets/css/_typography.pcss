@@ -4,19 +4,24 @@ a {
 }
 
 .title {
-  color: var(--color-primary);
-  @apply block font-bold text-5xl tracking-wide transition-colors duration-200 ease-in-out;
+  color: var(--text-secondary);
+  @apply block font-bold text-4xl tracking-wide transition-colors duration-200 ease-in-out;
 }
 
 .subtitle {
   color: var(--text-secondary);
-  word-spacing: 0.15em;
-  @apply block font-light text-3xl tracking-wide pb-4 transition-colors duration-200 ease-in-out;
+  word-spacing: 0.1rem;
+  @apply block font-light text-3xl tracking-wide mb-2 transition-colors duration-200 ease-in-out;
 }
 
-.light-mode {
-  .title {
-    color: var(--color-primary-600);
-    @apply block font-bold text-5xl tracking-wide transition-colors duration-200 ease-in-out;
-  }
+.subsubtitle {
+  color: var(--text-secondary);
+  word-spacing: 0.1rem;
+  @apply block font-light text-xl tracking-wide mb-2 transition-colors duration-200 ease-in-out;
 }
+/*
+.light-mode {
+  & .title {
+    color: var(--color-primary-600);
+  }
+} */

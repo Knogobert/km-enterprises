@@ -1,0 +1,225 @@
+.form {
+  @apply
+    flex
+    flex-col
+    text-left
+    w-full
+    max-w-lg;
+}
+
+.form-control {
+  @apply
+    flex
+    flex-col
+    flex-wrap
+    items-baseline
+    px-4
+    py-2
+    mb-1
+    transition-colors
+    duration-200
+    ease-in-out;
+
+  &.hidden { display: none !important; }
+
+  & label {
+    @apply
+      text-xs
+      uppercase
+      z-10
+      px-4
+      py-2
+      tracking-widest;
+  }
+
+  & input,
+  & textarea {
+    @apply
+      appearance-none
+      py-2
+      px-4
+      text-black
+      bg-gray-300
+      rounded-lg
+      border
+      border-accent-100
+      transition-colors
+      duration-100
+      ease-in-out;
+
+    &:hover {
+      @apply
+        text-black
+        bg-gray-400
+        cursor-pointer;
+    }
+    &:focus {
+      @apply
+        outline-none
+        bg-gray-200;
+    }
+    &:active {
+      @apply
+        outline-none
+        bg-gray-200;
+
+      &::placeholder {
+        @apply text-accent-900;
+      }
+    }
+    &::placeholder {
+      @apply text-accent-800;
+    }
+
+    &[type="radio"] {
+      min-width: 25px;
+      min-height: 25px;
+      @apply
+        p-2
+        border-gray-700;
+
+      &::before {
+        content: ' ';
+        line-height: .6;
+        display: block;
+      }
+
+      &:checked {
+        &::before {
+          content: '✓';
+          @apply font-bold;
+        }
+      }
+    }
+
+    &.filled,
+    &:checked {
+      @apply bg-primary-300 shadow-none;
+    }
+    &.unfulfilled {
+      @apply
+        bg-red-300
+        border-red-400;
+      &::placeholder {
+        @apply text-gray-800;
+      }
+    }
+
+    &.disabled,
+    &:disabled {
+      @apply
+        text-accent-900
+        bg-transparent
+        border-accent-700
+        cursor-not-allowed;
+        &::placeholder {
+          @apply text-accent-700;
+        }
+      &:hover {
+        @apply bg-transparent;
+      }
+    }
+
+    &:not(.form-control-radio) {
+      & > label,
+      & > input {
+        @apply
+          block
+          w-full;
+      }
+    }
+  }
+
+  & textarea {
+    min-height: 42px;
+    height: 68px;
+    max-height: 420px;
+    @apply w-full;
+  }
+
+  & input[type=range] {
+    &::-moz-range-thumb {
+      height: 20px;
+      width: 12px;
+      margin-top: -6px;
+      margin-bottom: -6px;
+      @apply appearance-none
+        bg-primary-200
+        cursor-pointer
+        rounded-full;
+    }
+    &:focus,
+    &:active {
+      &::-moz-range-thumb {
+        @apply bg-primary shadow-outline;
+      }
+    }
+    &::-webkit-slider-thumb {
+      height: 20px;
+      width: 12px;
+      margin-top: -6px;
+      margin-bottom: -6px;
+      @apply appearance-none
+        bg-primary-200
+        cursor-pointer
+        rounded-full;
+    }
+    &:focus,
+    &:active {
+      &::-webkit-slider-thumb {
+        @apply bg-primary shadow-outline;
+      }
+    }
+    &.disabled,
+    &:disabled {
+      &::-moz-range-thumb {
+        @apply bg-accent-700 cursor-not-allowed;
+      }
+      &::-webkit-slider-thumb {
+        @apply bg-accent-700 cursor-not-allowed;
+      }
+    }
+  }
+
+  &:not(.form-control-radio) {
+    & > label,
+    & > input {
+      @apply
+        block
+        w-full;
+    }
+  }
+}
+
+ul.form-control {
+  @apply w-full;
+
+  & > li {
+    @apply
+      w-full
+      my-2
+      flex
+      flex-wrap
+      items-baseline
+      justify-center;
+  }
+}
+
+.form-control-radio {
+  @apply
+    flex-row
+    px-0
+    align-baseline
+    justify-between;
+
+  & > label {
+    @apply
+      flex
+      items-center
+      cursor-pointer;
+
+    & > input {
+      @apply mr-2;
+    }
+  }
+}
