@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 m-2 max-w-xl">
+  <div class="logo p-4 m-2 max-w-xl">
     <svg
       class="w-full text-gray-900 dark:text-white"
       xmlns="http://www.w3.org/2000/svg"
@@ -61,3 +61,9 @@
     </svg>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.logo {
+  @apply transition-colors duration-200 ease-in-out;
+}
+</style>
