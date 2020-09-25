@@ -127,6 +127,10 @@ export default {
     }
   },
   pwa: {
+    icon: {
+      source: 'static/icon.png',
+      filename: 'icon.png'
+    },
     manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
     meta: {
       name: SITE_INFO.sitename || process.env.npm_package_name || '',
