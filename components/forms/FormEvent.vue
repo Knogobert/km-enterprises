@@ -8,7 +8,7 @@
     data-netlify-honeypot="honung"
   >
     <input type="hidden" name="form-name" value="event" />
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap form-group">
       <h4 class="subsubtitle mb-0 text-center w-full">Kontaktinformation</h4>
       <p class="form-control w-full sm:w-1/2">
         <label>Emailadress</label>
@@ -34,7 +34,7 @@
       </p>
     </div>
 
-    <div>
+    <div class="form-group">
       <h4 class="subsubtitle mt-8 text-center">Event</h4>
       <p class="form-control">
         <label>Plats</label>
