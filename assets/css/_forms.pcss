@@ -1,133 +1,209 @@
-.form {
-  @apply
-    flex
-    flex-col
-    text-left
-    w-full
-    max-w-lg;
-}
-
-.form-group {
-  @apply
-    border
-    border-solid
-    border-primary-700;
-}
-
-.form-control {
-  @apply
-    flex
-    flex-col
-    flex-wrap
-    items-baseline
-    px-4
-    py-2
-    mb-1
-    transition-colors
-    duration-200
-    ease-in-out;
-
-  &.hidden { display: none !important; }
-
-  & label {
+@layer components {
+  .form {
     @apply
-      text-xs
-      uppercase
-      z-10
-      px-4
-      py-2
-      tracking-widest;
+      flex
+      flex-col
+      text-left
+      w-full
+      max-w-lg;
   }
 
-  & input,
-  & textarea {
+  .form-group {
     @apply
-      appearance-none
-      py-2
-      px-4
-      text-black
-      bg-gray-300
-      rounded-lg
-      border
-      border-accent-100
+      bg-primary-800
+      rounded-xl
+      pb-2
       transition-colors
-      duration-100
+      duration-200
+      ease-in-out;
+      /* border
+      border-solid
+      border-primary-700; */
+
+    & + .form-group {
+      @apply mt-1;
+    }
+  }
+
+  .form-control {
+    @apply
+      flex
+      flex-col
+      flex-wrap
+      items-baseline
+      px-4
+      py-2
+      mb-1
+      transition-colors
+      duration-200
       ease-in-out;
 
-    &:hover {
+    &.hidden { display: none !important; }
+
+    & label {
       @apply
+        text-xs
+        uppercase
+        z-10
+        px-4
+        py-2
+        tracking-widest;
+    }
+
+    & input,
+    & textarea {
+      @apply
+        appearance-none
+        py-2
+        px-4
         text-black
-        bg-gray-400
-        cursor-pointer;
-    }
-    &:focus {
-      @apply
-        outline-none
-        bg-gray-200;
-    }
-    &:active {
-      @apply
-        outline-none
-        bg-gray-200;
+        bg-gray-300
+        rounded-lg
+        border
+        border-primary-700
+        transition-colors
+        duration-100
+        ease-in-out;
 
+      &:hover {
+        @apply
+          text-black
+          bg-gray-400
+          cursor-pointer;
+      }
+      &:focus {
+        @apply
+          outline-none
+          bg-gray-200;
+      }
+      &:active {
+        @apply
+          outline-none
+          bg-gray-200;
+
+        &::placeholder {
+          @apply text-accent-900;
+        }
+      }
       &::placeholder {
-        @apply text-accent-900;
-      }
-    }
-    &::placeholder {
-      @apply text-accent-800;
-    }
-
-    &[type="radio"] {
-      min-width: 25px;
-      min-height: 25px;
-      @apply
-        p-2
-        border-gray-700;
-
-      &::before {
-        content: ' ';
-        line-height: .6;
-        display: block;
+        @apply text-accent-800;
       }
 
-      &:checked {
+      &[type="checkbox"] {
+        min-width: 29px;
+        min-height: 25px;
+        @apply
+          p-2
+          border-gray-400;
+
         &::before {
           content: '✓';
-          @apply font-bold;
+          line-height: .6;
+          @apply block text-gray-500;
+
+          &:hover {
+            @apply bg-primary-100;
+          }
+        }
+
+        &:checked {
+          &::before {
+            content: '✓';
+            @apply font-bold text-gray-800;
+          }
         }
       }
-    }
 
-    &.filled,
-    &:checked {
-      @apply bg-primary-300 shadow-none;
-    }
-    &.unfulfilled {
-      @apply
-        bg-red-300
-        border-red-400;
-      &::placeholder {
-        @apply text-gray-800;
+      &.filled,
+      &:checked {
+        @apply bg-primary-200 shadow-none;
       }
-    }
-
-    &.disabled,
-    &:disabled {
-      @apply
-        text-accent-900
-        bg-transparent
-        border-accent-700
-        cursor-not-allowed;
+      &.unfulfilled {
+        /* @apply
+          bg-red-300
+          border-red-400; */
         &::placeholder {
-          @apply text-accent-700;
+          @apply text-gray-800;
         }
-      &:hover {
-        @apply bg-transparent;
+      }
+
+      &.disabled,
+      &:disabled {
+        @apply
+          text-accent-900
+          bg-transparent
+          border-accent-700
+          cursor-not-allowed;
+          &::placeholder {
+            @apply text-accent-700;
+          }
+        &:hover {
+          @apply bg-transparent;
+        }
+      }
+
+      &:not(.form-control-checkbox) {
+        & > label,
+        & > input {
+          @apply
+            block
+            w-full;
+        }
       }
     }
 
-    &:not(.form-control-radio) {
+    & textarea {
+      min-height: 42px;
+      height: 68px;
+      max-height: 420px;
+      @apply w-full;
+    }
+
+    & input[type=range] {
+      &::-moz-range-thumb {
+        height: 20px;
+        width: 12px;
+        margin-top: -6px;
+        margin-bottom: -6px;
+        @apply appearance-none
+          bg-primary-200
+          cursor-pointer
+          rounded-full;
+      }
+      &:focus,
+      &:active {
+        &::-moz-range-thumb {
+          @apply bg-primary shadow-outline;
+        }
+      }
+      &::-webkit-slider-thumb {
+        height: 20px;
+        width: 12px;
+        margin-top: -6px;
+        margin-bottom: -6px;
+        @apply appearance-none
+          bg-primary-200
+          cursor-pointer
+          rounded-full;
+      }
+      &:focus,
+      &:active {
+        &::-webkit-slider-thumb {
+          @apply bg-primary shadow-outline;
+        }
+      }
+      &.disabled,
+      &:disabled {
+        &::-moz-range-thumb {
+          @apply bg-accent-700 cursor-not-allowed;
+        }
+        &::-webkit-slider-thumb {
+          @apply bg-accent-700 cursor-not-allowed;
+        }
+      }
+    }
+
+    &:not(.form-control-checkbox) {
       & > label,
       & > input {
         @apply
@@ -137,96 +213,95 @@
     }
   }
 
-  & textarea {
-    min-height: 42px;
-    height: 68px;
-    max-height: 420px;
+  ul.form-control {
     @apply w-full;
-  }
 
-  & input[type=range] {
-    &::-moz-range-thumb {
-      height: 20px;
-      width: 12px;
-      margin-top: -6px;
-      margin-bottom: -6px;
-      @apply appearance-none
-        bg-primary-200
-        cursor-pointer
-        rounded-full;
-    }
-    &:focus,
-    &:active {
-      &::-moz-range-thumb {
-        @apply bg-primary shadow-outline;
-      }
-    }
-    &::-webkit-slider-thumb {
-      height: 20px;
-      width: 12px;
-      margin-top: -6px;
-      margin-bottom: -6px;
-      @apply appearance-none
-        bg-primary-200
-        cursor-pointer
-        rounded-full;
-    }
-    &:focus,
-    &:active {
-      &::-webkit-slider-thumb {
-        @apply bg-primary shadow-outline;
-      }
-    }
-    &.disabled,
-    &:disabled {
-      &::-moz-range-thumb {
-        @apply bg-accent-700 cursor-not-allowed;
-      }
-      &::-webkit-slider-thumb {
-        @apply bg-accent-700 cursor-not-allowed;
-      }
-    }
-  }
-
-  &:not(.form-control-radio) {
-    & > label,
-    & > input {
+    & > li {
       @apply
-        block
-        w-full;
+        w-full
+        my-2
+        flex
+        flex-wrap
+        items-baseline
+        justify-center;
     }
   }
-}
 
-ul.form-control {
-  @apply w-full;
-
-  & > li {
+  .form-control-checkbox {
     @apply
-      w-full
-      my-2
-      flex
-      flex-wrap
-      items-baseline
-      justify-center;
+      flex-row
+      px-0
+      align-baseline
+      justify-between;
+
+    & > label {
+      @apply
+        flex
+        items-center
+        cursor-pointer;
+
+      & > input {
+        @apply mr-2;
+      }
+    }
   }
-}
 
-.form-control-radio {
-  @apply
-    flex-row
-    px-0
-    align-baseline
-    justify-between;
+  .light-mode {
+    & .form-group {
+      @apply bg-primary-200;
+    }
 
-  & > label {
-    @apply
-      flex
-      items-center
-      cursor-pointer;
+    & .form-control {
+      & input,
+      & textarea {
+        @apply border-primary-200;
 
-    & > input {
-      @apply mr-2;
+        &:hover {
+          @apply
+            text-black
+            bg-gray-200;
+        }
+        &:focus {
+          @apply bg-gray-100;
+        }
+        &:active {
+          @apply bg-gray-200;
+
+          &::placeholder {
+            @apply text-accent-900;
+          }
+        }
+        &::placeholder {
+          @apply text-accent-800;
+        }
+
+        &[type="checkbox"] {
+          @apply bg-gray-300 border-gray-500;
+
+          &::before {
+            @apply text-gray-400;
+          }
+
+          &:checked {
+            &::before {
+              @apply text-gray-800;
+            }
+          }
+        }
+
+        &.filled,
+        &:checked {
+          @apply bg-primary-100 text-primary-900;
+        }
+        &.unfulfilled {
+          /* @apply
+            bg-red-300
+            border-red-400; */
+          &::placeholder {
+            @apply text-gray-800;
+          }
+        }
+      }
     }
   }
 }

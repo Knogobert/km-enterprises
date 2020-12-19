@@ -8,8 +8,8 @@
     data-netlify-honeypot="honung"
   >
     <input type="hidden" name="form-name" value="event" />
-    <div class="flex flex-wrap form-group">
-      <h4 class="subsubtitle mb-0 text-center w-full">Kontaktinformation</h4>
+    <fieldset class="flex flex-wrap form-group">
+      <h4 class="subsubtitle mt-4 text-center w-full">Kontaktinformation</h4>
       <p class="form-control w-full sm:w-1/2">
         <label>Emailadress</label>
         <input
@@ -32,10 +32,10 @@
           placeholder="+46 701 555 555"
         />
       </p>
-    </div>
+    </fieldset>
 
-    <div class="form-group">
-      <h4 class="subsubtitle mt-8 text-center">Event</h4>
+    <fieldset class="form-group">
+      <h4 class="subsubtitle mt-4 text-center">Event</h4>
       <p class="form-control">
         <label>Plats</label>
         <input
@@ -92,7 +92,7 @@
       </p>
       <div class="form-control">
         <label class="pb-0">Uppskattad personalstyrka</label>
-        <ul class="form-control">
+        <ul class="form-control text-right">
           <li class="flex flex-wrap">
             <label for="waiter" class="w-full sm:w-1/2">Servitörer</label>
             <input
@@ -133,7 +133,7 @@
       </div>
       <div class="form-control">
         <label class="pb-0">Tillägg</label>
-        <p class="form-control form-control-radio">
+        <p class="form-control form-control-checkbox">
           <label for="buy-alcohol"
             ><input
               v-model="event.extras"
@@ -178,9 +178,9 @@
           placeholder="tex. typ av event (Firmafest, Studentskiva, Bröllop)"
         />
       </p>
-    </div>
+    </fieldset>
 
-    <hr class="border-primary-600 mt-4" />
+    <!-- <hr class="border-primary-600 mt-4" /> -->
 
     <p class="form-control mt-6">
       <button class="btn w-full" type="submit" :disabled="!formIsFilled">
