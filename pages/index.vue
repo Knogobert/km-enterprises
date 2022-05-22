@@ -1,9 +1,9 @@
 <template>
   <div class="main text-center flex flex-col items-center justify-center mb-16">
     <logo />
-    <h2 class="text-xl mb-6">Hyr in barpersonal till event</h2>
-    <img src="/img/bartender.jpg" title="bartender pouring a drink" class="w-full h-auto max-w-3xl rounded-xl"/>
-    <h3 class="title mt-12">Offertförfrågan</h3>
+    <h2 class="text-xl mb-32">Hyr in barpersonal till event</h2>
+    <!-- <img src="/img/bartender.jpg" title="bartender pouring a drink" class="w-full h-auto max-w-3xl rounded-xl"/> -->
+    <h3 class="title">Offertförfrågan</h3>
     <form-event/>
   </div>
 </template>
